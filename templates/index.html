@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+	<title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+	<header>
+		<a class='logo' href="/home">D-REC</a>
+
+		<form class="top-form" action="/search" method="get">
+			<input type="text" name="search" required placeholder="MickyBeatz">
+			<button>SEND</button>
+		</form>
+
+		<nav>
+			<ul class="header-nav">
+				<li><a href="#">Inicio</a></li>
+				<li><a href="#">Sobre-Nos</a></li>
+				<li><a href="#">Servicos</a></li>
+				<li id="h-li-4"><a href="/login"><button class="btn-contact">Contacto</button></a></li>
+			</ul>
+		</nav>
+		<div class="toggle" onclick="open_side_menu()">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</header>
+
+	<nav class="side-menu" id="side-menu">
+		<div class="toggle-close" onclick="toggle_close()">
+			<p>X</p>
+		</div>
+
+		<form class="side-form" action="">
+			<input type="text" name="search">
+			<button>SEND</button>
+		</form>
+		<nav id="side-menu-list">
+			<ul class="side-nav">
+				<li class='item'><a href="/home">Inicio</a></li>
+				<li class='item'><a href="#" onclick="show_info(0)">Sobre-Nos</a></li>
+					<div class="list-item">
+						<p>Fugiat excepteur dolor non nisi
+						ipsum labore velit nulla fugiat nulla aliqua.</p>
+						<p>
+							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat eaque ratione alias
+							quo aspernatur, labore dolor necessitatibus cumque obcaecati soluta! Sed incidunt
+							consectetur facilis debitis sint cum obcaecati quos vel!
+						</p> 
+					</div>
+
+				<li class='item'><a href="#"  onclick="show_info(1)">Servicos</a></li>
+					<div class="list-item">
+						<p>Fugiat excepteur dolor non nisi
+						ipsum labore velit nulla fugiat nulla aliqua.</p>
+						<p>
+							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat eaque ratione alias
+							quo aspernatur, labore dolor necessitatibus cumque obcaecati soluta! Sed incidunt
+							consectetur facilis debitis sint cum obcaecati quos vel!
+						</p> 
+					</div>
+
+				<li class='item'><a href="#"  onclick="show_info(2)">Contacto</a></li>
+					<div class="list-item">
+						<form action="" method="post" class="contacto">
+							<label>Nome <input type="text" name="name" placeholder="Nome..." required></label>
+							<label>Email <input type="email" name="email" placeholder="Email..." required></label>
+							<label><button>ENVIAR</button></label>
+						</form>
+					</div>
+			</ul>
+		</nav>
+	</nav>
+
+
+	<main onclick="toggle_close()">
+
+	{% block content%}{% endblock %}
+	
+	</main>
+
+
+	<footer>
+		<div id='hr'></div>
+		<section class="footer">
+			<ul class="social-media">
+				<li id="li-1"><a href="#">f</a></li>
+				<li><a href="#">i</a></li>
+				<li><a href="#">w</a></li>
+			</ul>
+
+			<p>@d-rec.emp-2021</p>
+
+			<a href="#">D-REC</a>
+		</section>
+	</footer>
+
+	<script src="{{url_for('static', filename='script.js')}}"></script>
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

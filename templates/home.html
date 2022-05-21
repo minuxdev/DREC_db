@@ -1,0 +1,92 @@
+{% extends "index.html" %}
+
+{% block title %}D-Rec Studio{% endblock %}
+
+{% block content %}
+    <section class="top-menu-info">
+        <h1>Para onde vamos?</h1>
+    </section>
+
+    <section class="main-options">
+        <div class="cards">
+            <div class="card">
+                <div class="h2">
+                    <ion-icon name="create-outline" class='ico_logo' size='large'></ion-icon>
+                    <h2>Marcar Sessao</h2>
+                </div>
+                
+                <div class="text">
+                    <p>Marque ja a sua sessao de trabalho e garanta o seu proprio tempo no studio.</p>
+                </div>
+                
+                <div class="go-to">
+                    <a href="/schedule"><ion-icon name="arrow-forward-outline" size="large"></ion-icon></a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="h2">
+                    <ion-icon name="eye-outline" class='ico_logo' size='large'></ion-icon>
+                    <h2>Consulta</h2>
+                </div>
+                <div class="text">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                    Error sint, tenetur mollitia fugiat quasi molestiae autem quia.
+                    </p>
+                </div>
+                <div class="go-to">
+                    <a href="/session"><ion-icon name="arrow-forward-outline" size="large"></ion-icon></a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="h2">
+                    <ion-icon name="chatbox-outline" class='ico_logo' size='large'></ion-icon>
+                    <h2>Sugestoes</h2>
+                </div>
+                <div class="text">
+                    <p>Deixe ficar a sua opiniao, comentario e sugestao, fazendo dessa forma a 
+                    D-REC Studio um lugar para se trabalhar.</p>
+                </div>
+                <div class="go-to">
+                    <a href="/message"><ion-icon name="arrow-forward-outline" size="large"></ion-icon></a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="h2">
+                    <ion-icon name="play-outline" class='ico_logo' size='large'></ion-icon>
+                    <h2>Ver Trabalhos</h2>
+                </div>
+                <div class="text">
+                    <p>Aprecie os trabalhos ja disponibilizados. Acompanhe de perto a evolucao da sua casa, a D-REC Studio</p>
+                </div>
+                <div class="go-to">
+                    <a href="/release"><ion-icon name="arrow-forward-outline" size="large"></ion-icon></a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    {% if messages is not none %}
+        <section class="comments">
+            <section class="top-com">
+                <h2>Veja o que os outros dizem sobre nos</h1>
+            </section>
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="user-comm">
+                        <p><strong>{{message[1]}}</strong></p><br>
+                        <p class="sugestion">
+                            {{message[3]}}
+                        </p>
+                        <p id="com_date">{{message[4]}}</p>
+                    </div>
+                {% endfor %}
+            </div>
+            
+        </section>
+    {% endif %}
+{% endblock %}
+

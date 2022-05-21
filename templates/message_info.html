@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+
+{% block title %}Comentario{% endblock %}
+
+{% block content %}
+    <section class="top-menu-info">
+        <h1>O que tem para nos?</h1>
+    </section>
+
+    <!-- COMENTARIOS -->
+    <section class="comments">
+        <form class="msg" action="" method="post">
+            <label>Nome: <input type="text" name="name" required placeholder="MickyBeatz"></label>
+            <label>Email: <input type="email" name="email" required placeholder="drec.emp@gmail.com"></label>
+            <label for="">
+                <textarea name="message" id="msg" cols="36" rows="6" required placeholder="Mensagem..."></textarea>
+            </label>
+            <button class="submit">Enviar</button>
+        </form>
+    </section>
+
+{% endblock %}

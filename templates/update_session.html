@@ -1,0 +1,57 @@
+{% extends "index.html" %}
+
+{% block title %}Update Sessions{% endblock %}
+
+{% block content %}
+
+    <!-- VER TRABALHOS -->
+    <section class="jobs">
+        <h2>Update Sessions</h2>
+		<table class="table table-action">
+
+			<thead>
+				<tr>
+					<th class="t-small">ID</th>
+					<th class="t-medium">Artista</th>
+                    <th class="t-medium">Phone Nr</th>
+					<th>Session</th>
+                    <th class="t-medium">Date</th>
+                    <th class="t-medium">State</th>
+                    <th class="t-link">Update</th>
+                    <th class="t-link">Delete</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				{% for value in session_data %}
+					<tr>
+						<td>{{value[0]}}</td>
+						<td>{{value[1]}}</td>
+                        <td>{{value[2]}}</td>
+						<td>{{value[3]}}</td>
+						<td>{{value[4]}}</td>
+                        <td class="{{value[5]}}">{{value[5]}}</td>
+                        <td>
+                            <button class="edit">
+                                <a href="/edit/{{value[0]}}/{{db}}">
+                                    <ion-icon id="download-btn" name="refresh-outline" 
+                                    size="small"></ion-icon>
+                                </a>
+                            </button>
+                        </td>
+						<td>
+                            <button class="delete">
+                                <a href="#">
+                                    <ion-icon id="download-btn" name="trash-outline" 
+                                    size="small"></ion-icon>
+                                </a>
+                            </button>
+                        </td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+        
+    </section>
+
+{% endblock %}

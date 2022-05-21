@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+
+{% block title %}Marcar Sessao{% endblock %}
+
+{% block content %}
+
+	<!-- Marcacao -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="{{ category }}">
+                    <p class="flash">{{message}}</p>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    
+    <section class="appointment update">
+		<h2 class="title">Actualizar dados</h2>
+
+		<form action="/update/data" method="post">
+			<label>file_name: <input type="text" name="file_name" required placeholder="K Dreezy - Mama don't cry (D-Rec Studio)"></label>
+            <label>release_date: <input type="date" name="release" required placeholder="MickyBeatz"></label>
+            <label>download_link: <input type="text" name="link" required placeholder="http://drec.com/drec.mp3"></label>
+            <!-- <label>Usuario: <input type="text" name="name" required placeholder="MickyBeatz"></label> -->
+			<label></label><button class="submit">Update</button></label>
+		</form>
+	</section>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+
+{% block title %}Marcar Sessao{% endblock %}
+
+{% block content %}
+
+	<!-- Marcacao -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="{{ category }}">
+                    <p class="flash">{{message}}</p>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    
+    <section class="appointment update">
+		<h2 class="title">Actualizar dados</h2>
+
+		<form action="/update/data" method="post">
+			<label>New Name: <input type="text" name="artist_name" placeholder="K Dreezy"></label>
+            <label>New Phone: <input type="tel" name="tel" placeholder="MickyBeatz"></label>
+            <label>Email: <input type="email" name="email" placeholder="drec.emp@gmail.com"></label>
+			<label></label><button class="submit">Update</button></label>
+		</form>
+	</section>
+
+{% endblock %}

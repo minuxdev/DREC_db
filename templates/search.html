@@ -1,0 +1,80 @@
+{% extends "index.html" %}
+
+{% block title %}Pesquisar Sessao{% endblock %}
+
+{% block content %}
+	<!-- CONSULTA -->
+	<section class="check-status">
+		<h2>Sessoes</h2>
+		<!-- TABLE -->
+		{% if session_data|length != 0 %}
+			<table class="table table-action">
+				<thead>
+					<tr>
+						<th class="t-small">ID</th>
+						<th class="t-medium">Name</th>
+						<th>Sessao</th>
+						<th class="t-medium">Data</th>
+						<th class="t-medium">Estatado</th>
+					</tr>
+				</thead>
+				
+
+				<tbody>
+					{% for value in session_data %}
+						<tr>
+							<td>{{value[0]}}</td>
+							<td>{{value[1]}}</td>
+							<td>{{value[2]}}</td>
+							<td>{{value[3]}}</td>
+							<td class="{{value[5]}}">{{value[4]}}</td>
+							
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			<!-- END TABLE -->
+		{% else %}
+			<p class='no_record'>Sem resultados para "{{kword|upper}}"!</p>
+		{% endif %}
+	</section>
+
+	<section class="jobs">
+		<h2>Musicas</h2>
+		{% if music_data|length != 0 %}	
+			<table class="table table-action">
+				<thead>
+					<tr>
+						<th class="t-small">ID</th>
+						<th class="t-medium">Artista</th>
+						<th>Musica</th>
+						<th class="t-medium">Release</th>
+						<th class="t-link">Link</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					{% for value in music_data %}
+						{% if value[2] is not none %}
+							<tr>
+								<td>{{value[0]}}</td>
+								<td>{{value[1]}}</td>
+								<td>{{value[2]}}</td>
+								<td>{{value[3]}}</td>
+								<td><button>
+									<a href={{value[6]}}>
+										<ion-icon id="download-btn" name="download-outline" 
+										size="small"></ion-icon>
+									</a>
+								</button></td>
+							</tr>
+						{% endif %}
+					{% endfor %}
+				</tbody>
+			</table>
+		{% else %}
+			<p class='no_record'>Sem resultados para "{{kword|upper}}"!</p>
+		{% endif %}
+	</section>
+
+{% endblock %}

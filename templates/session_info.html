@@ -1,0 +1,38 @@
+{% extends "index.html" %}
+
+{% block title %}Update Sessions{% endblock %}
+
+{% block content %}
+
+	<!-- Marcacao -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="{{ category }}">
+                    <p class="flash">{{message}}</p>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    
+    <section class="appointment update">
+		<h2 class="title">Update Sessions</h2>
+        
+		<form action="/update/data" method="post">
+            <label>Date: <input type="date" name="date"></label>
+            <label>Sessso:  <select name="session">
+				<option value="Record">Record</option>
+				<option value="Instrumental">Instrumental</option>
+				<option value="Visit">Visita</option>
+			</select></label>
+            <label>Status:  <select name="status">
+				<option value="Activo">Activo</option>
+				<option value="Pendente">Pendente</option>
+				<option value="Cancelado">Cancelado</option>
+                <option value="Marcado">Marcado</option>
+			</select></label>
+			<label></label><button class="submit">Update</button></label>
+		</form>
+	</section>
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "index.html" %}
+
+{% block title %}Ver Trabalhos{% endblock %}
+
+{% block content %}
+
+    <!-- VER TRABALHOS -->
+    <section class="jobs">
+        <h2>Update 
+                {% if table %}
+                    {{table}}
+                {% else %}
+                    {{db}}
+                {% endif %}
+            Database</h2>
+		<table class="table table-action">
+
+			<thead>
+				<tr>
+					<th class="t-small">ID</th>
+					<th class="t-medium">Artist</th>
+					<th>{{db}}</th>
+                    {% if db == 'Phone Nr' %}
+                        <th>Email</th>
+                    {% endif %}
+                    <th class="t-link">Update</th>
+                    <th class="t-link">Delete</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				{% for value in music_data %}
+					<tr>
+						<td>{{value[0]}}</td>
+						<td>{{value[1]}}</td>
+						<td>{{value[2]}}</td>
+                        {% if db == 'Phone Nr' %}
+                            <td>{{value[3]}}</td>
+                        {% endif %}
+                        <td>
+                            <button class="edit">
+                                <a href="/edit/{{value[0]}}/{{db}}">
+                                    <ion-icon id="download-btn" name="refresh-outline" 
+                                    size="small"></ion-icon>
+                                </a>
+                            </button>
+                        </td>
+						<td>
+                            <button class="delete">
+                                <a href="/delete">
+                                    <ion-icon id="download-btn" name="trash-outline" 
+                                    size="small"></ion-icon>
+                                </a>
+                            </button>
+                        </td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+        
+    </section>
+
+{% endblock %}

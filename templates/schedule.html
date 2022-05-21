@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+
+{% block title %}Marcar Sessao{% endblock %}
+
+{% block content %}
+
+	<!-- Marcacao -->
+	<section class="appointment">
+		<h2 class="title">Quando vamos trabalhar?</h2>
+		<form action="" method="post">
+			<label>Nome: <input type="text" name="name" required placeholder="MickyBeatz"></label>
+			<label>Tel: <input type="tel" name="tel" required placeholder="+258864154771"></label>
+			<label>Email: <input type="email" name="email" placeholder="drec.emp@gmail.com"></label>
+			<label>Data: <input type="date" name="date" required placeholder="25/01/2022"></label>
+			<label>Time: <input type="time" name="time" min="9am" max="8pm" required></label>
+			<label>Sessso:  <select name="session" id="">
+				<option value="Record">Record</option>
+				<option value="Instrumental">Instrumental</option>
+				<option value="Visit">Visita</option>
+			</select></label>
+			<button class="submit">Enviar</button>
+		</form>
+	</section>
+
+{% endblock %}

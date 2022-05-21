@@ -1,0 +1,41 @@
+{% extends "index.html" %}
+
+{% block title %}Marcar Sessao{% endblock %}
+
+{% block content %}
+
+	{% with messages = get_flashed_messages(with_categories=true) %}
+		{% if messages %}
+			{% for category, message in messages %}
+				<div class="{{ category }}">
+					<p class="flash">{{message}}</p>
+				</div>
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+	<!-- Marcacao -->
+<section class="conteriner">
+	<section class="appointment login">
+		<h2 class="title">Login</h2>
+
+		<div class="log-page">
+			<div class="photo">
+				<figure>
+
+				</figure>
+			</div>
+
+			<div class="entries">
+				<form action="/login" method="post">
+					<label><input type="text" name="name" required placeholder="MickyBeatz"></label>
+					<label><input type="email" name="email" placeholder="drec.emp@gmail.com"></label>
+					<label><input id='passwd' type="password" name="passwd" required placeholder="*M@dR72$#"></label>
+					<label><button class="submit" onclick="new_user_validator()">Create</button></label>
+				</form>
+			</div>
+		</div>
+	</section>
+
+</section>
+	
+{% endblock %}
